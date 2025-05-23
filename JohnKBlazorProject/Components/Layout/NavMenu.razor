@@ -1,13 +1,13 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
+﻿@* <div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="">JohnKBlazorProject</a>
     </div>
-</div>
+</div> *@
 
-<input type="checkbox" title="Navigation menu" class="navbar-toggler" />
+@* <input type="checkbox" title="Navigation menu" class="navbar-toggler" /> *@
 
-<div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
-    <nav class="flex-column">
+<div>
+    <nav>
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
                 <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
@@ -23,6 +23,48 @@
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="weather">
                 <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Weather
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="todo">
+                <span class="bi bi-exclamation-circle-fill fs-4" aria-hidden="true"></span> Todo Area
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="?">
+                <span class="bi bi-exclamation-circle-fill fs-4" aria-hidden="true"></span> Inventory Management Area
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="?">
+                <span class="bi bi-exclamation-circle-fill fs-4" aria-hidden="true"></span> Appointment Scheduler Area
+            </NavLink>
+        </div>
+        
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="?">
+                <span class="bi bi-exclamation-circle-fill fs-4" aria-hidden="true"></span> Simple Social Feed Area
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="?">
+                <span class="bi bi-exclamation-circle-fill fs-4" aria-hidden="true"></span> Note Taking App Area
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="?">
+                <span class="bi bi-exclamation-circle-fill fs-4" aria-hidden="true"></span> Library Sim Area
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="?">
+                <span class="bi bi-exclamation-circle-fill fs-4" aria-hidden="true"></span> Game Area
             </NavLink>
         </div>
     </nav>
