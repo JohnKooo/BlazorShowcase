@@ -2,11 +2,14 @@ using JohnKBlazorProject.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 
+//TODO add Sqlite service here
+
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
 builder.Services.AddBootstrapBlazor();
+builder.Services.AddQuickGridEntityFrameworkAdapter();
 
 var app = builder.Build();
 

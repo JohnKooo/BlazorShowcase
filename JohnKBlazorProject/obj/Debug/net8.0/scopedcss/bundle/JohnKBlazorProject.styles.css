@@ -1,3 +1,5 @@
+@import '_content/Microsoft.AspNetCore.Components.QuickGrid/Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css';
+
 /* _content/JohnKBlazorProject/Components/Layout/MainLayout.razor.rz.scp.css */
 .page[b-cui95y0lfq] {
     position: relative;
@@ -10,7 +12,7 @@ main[b-cui95y0lfq] {
 }
 
 .sidebar[b-cui95y0lfq] {
-    background-color: gray;
+    /* background-color: gray; */
     /* background-color: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%); */
 }
 
