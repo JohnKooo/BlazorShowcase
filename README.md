@@ -22,7 +22,7 @@ I will also add how to run this project in the future, for now its a challenge y
 * priorities
 * EXTRA: User registration & login with cookies, drag-and-drop features, filtering, email reminders
 
-**2 ![#f03c15](https://placehold.co/15x15/f03c15/f03c15.png) InventoryManagement**
+**2 ![#f03c15](https://placehold.co/15x15/ffa500/ffa500.png) InventoryManagement**
 * Have Items, vendors, stock levels
 * purchase orders and receipts
 * role-based access (depending on who you are what you can view and do)
@@ -54,7 +54,7 @@ I will also add how to run this project in the future, for now its a challenge y
 ### Progress
 
 1: ![#f03c15](https://placehold.co/15x15/ffa500/ffa500.png) `In Progress` <br>
-2: ![#f03c15](https://placehold.co/15x15/f03c15/f03c15.png) `Not Started` <br>
+2: ![#f03c15](https://placehold.co/15x15/ffa500/ffa500.png) `Started` <br>
 3: ![#f03c15](https://placehold.co/15x15/f03c15/f03c15.png) `Not Started` <br>
 4: ![#f03c15](https://placehold.co/15x15/f03c15/f03c15.png) `Not Started` <br>
 5: ![#f03c15](https://placehold.co/15x15/f03c15/f03c15.png) `Not Started` <br>
