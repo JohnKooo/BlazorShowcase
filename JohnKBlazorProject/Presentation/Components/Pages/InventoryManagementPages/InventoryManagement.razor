@@ -1,0 +1,87 @@
+﻿@page "/inventorymanagement"
+@rendermode InteractiveServer
+@using Microsoft.EntityFrameworkCore
+@using Microsoft.AspNetCore.Components.QuickGrid
+@using Presentation.Models;
+@using Presentation.Models.Inventory;
+@inject NavigationManager NavigationManager;
+
+<PageTitle>Inventory Management</PageTitle>
+
+@* <NavLink class="nav-link" href="inventorymanagement/customer">
+    <span aria-hidden="true"></span> Customer
+</NavLink>
+
+<NavLink class="nav-link" href="inventorymanagement/vendor">
+    <span aria-hidden="true"></span> Vendor
+</NavLink> *@
+<button type="submit" @onclick=@(() => NavigationManager.NavigateTo("inventorymanagement/customer"))>Customer</button>
+<button type="submit" @onclick=@(() => NavigationManager.NavigateTo("inventorymanagement/vendor"))>Vendor</button>
+
+@* <div>
+    <h1>Current Stock</h1>
+    <QuickGrid Items="items.AsQueryable()">
+        <PropertyColumn Property="@(p => p.Name)" Sortable="true" />
+        <PropertyColumn Property="@(p => p.Quantity)" Sortable="true" />
+        <PropertyColumn Property="@(p => p.Cost)" Sortable="true" />
+    </QuickGrid>
+</div>
+
+<div>
+    <h1>Orders</h1>
+    <QuickGrid Items="orders.AsQueryable()">
+        <PropertyColumn Property="@(p => p.CustomerName)" Sortable="true" />
+        <PropertyColumn Property="@(p => p.Items)" Sortable="true" />
+        <PropertyColumn Property="@(p => p.OrderDate)" Sortable="true" />
+    </QuickGrid>
+    <button type="submit" @onclick="AddOrder">AddOrderTest</button>
+</div> *@
+
+
+@code {
+    @* public List<Item> items = new List<Item> 
+        {
+            new Item(0, "Apple", 10, 2),
+            new Item(1, "Stick", 10, 1),
+            new Item(2, "Sword", 10, 5),
+            new Item(3, "Mud", 10, 1),
+            new Item(4, "Potato", 10, 2.5f),
+            new Item(5, "Rope", 10, 6.25f),
+            new Item(6, "Rock", 10, .5f),
+            new Item(7, "Broken Sword", 10, 2.5f),
+            new Item(8, "Healing Juice", 10, 8.60f),
+            new Item(9, "Gold", 10, 15.75f),
+            new Item(10, "Golden Stick", 10, 30.67f),
+        };
+
+    public List<Order> orders = new();
+
+    public void AddOrder()
+    {
+        var order = new Order();
+        order.CustomerName = "greg";
+        order?.Items?.AddRange(items);
+        orders.Add(order);
+    }
+
+    protected override void OnInitialized()
+    {
+        RandomizeItemValues();
+    }
+
+    public void RandomizeItemValues()
+    {
+        Random random = new Random();
+        random.Next(0,30);
+        // Could make each item outside of this but for now its fine
+        foreach(var item in items)
+        {
+            item.Quantity = random.Next(0,30);
+            var randomCost = (float) random.NextDouble() * (31 - .5f) + .5f;
+            item.Cost = (float) Math.Round(randomCost, 2);
+        }
+
+        //TODO interesting way to shuffle found online
+        items = items.OrderBy(i => Guid.NewGuid()).ToList();
+    } *@
+}

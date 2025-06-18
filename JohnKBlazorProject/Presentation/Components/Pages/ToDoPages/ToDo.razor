@@ -1,0 +1,146 @@
+﻿@page "/todo"
+@rendermode InteractiveServer
+@using Microsoft.EntityFrameworkCore
+@using Microsoft.AspNetCore.Components.QuickGrid
+@using Presentation.Models;
+
+<PageTitle>ToDo</PageTitle>
+
+<div style="max-width: 500px;">
+    <h1>ToDo Tasks Below</h1>
+
+    <QuickGrid Items="toDoList.AsQueryable()">
+        <PropertyColumn Property="@(p => p.Name)" Sortable="true" />
+        <PropertyColumn Property="@(p => p.Description)" Sortable="true" />
+        <PropertyColumn Property="@(p => p.Completed)" Sortable="true" />
+
+        <TemplateColumn>
+            <InputCheckbox id="prioritized" @bind-Value="context.Prioritized" @bind-Value:after="OnValueChanged" />
+        </TemplateColumn>
+
+        <TemplateColumn>
+            <button type="submit" class="btn btn-success" @onclick="() => CompleteItem(context)">Complete</button>
+        </TemplateColumn>
+
+        <TemplateColumn>
+            <button type="submit" class="btn btn-primary btn-sm mx-1" @onclick="() => DeleteItem(context)">Delete</button>
+        </TemplateColumn> 
+    </QuickGrid>
+
+    @if (!creatingToDoItem)
+    {
+        <button type="submit" @onclick="AddItemButton">Add New Task</button>
+    }
+    else
+    {
+        <EditForm Model="toDoItem" OnValidSubmit="AddItem">
+            <DataAnnotationsValidator />
+
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td>
+                            <InputText id="name" class="form-control" placeholder="Name" @bind-Value="toDoItem.Name" />
+                            <ValidationMessage For="@(() => toDoItem.Name)" />
+                        </td>
+
+                        <td>
+                            <InputText id="description" class="form-control" placeholder="Description" @bind-Value="toDoItem.Description" />
+                            <ValidationMessage For="@(() => toDoItem.Description)" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <button type="submit" class="btn btn-success mb-3">Add Task</button>
+            <button type="submit" @onclick="AddItemButton" class="btn btn-success mb-3">Cancel</button>
+        </EditForm>
+    }
+</div>
+
+
+
+<div>
+    <h1>Prioritized Tasks</h1>
+
+    <QuickGrid Items="toDoListPriorities.AsQueryable()">
+        <PropertyColumn Property="@(p => p.Name)" Sortable="true" /> 
+    </QuickGrid>
+</div>
+
+<div>
+    <h1>Completed Tasks</h1>
+
+    <QuickGrid Items="toDoListComplete.AsQueryable()">
+        <PropertyColumn Property="@(p => p.Name)" Sortable="true" /> 
+        <PropertyColumn Property="@(p => p.Description)" Sortable="true" /> 
+    </QuickGrid>
+
+    <button type="submit" class="nav-link" title="Export completed tasks to a PDF" aria-disabled="true">Export</button>
+</div>
+
+
+
+
+
+@code {
+    public List<ToDoItem> toDoList = new();
+    public List<ToDoItem> toDoListPriorities = new();
+    public List<ToDoItem> toDoListComplete = new();
+    public ToDoItem toDoItem = new();
+    public bool creatingToDoItem = false;
+
+    public void AddItemButton()
+    {
+        @* creatingToDoItem = true; *@
+        if(!creatingToDoItem)
+        {
+            creatingToDoItem = true;
+        }
+        else
+        {
+            creatingToDoItem = false;
+        }
+    }
+
+    public void AddItem()
+    {
+        @* int lastId = 0; *@
+        if (toDoList.Any() && toDoList.Last() != null)
+        {
+            @* lastId = toDoList.Last().Id; *@
+            toDoItem.Id = toDoList.Last().Id + 1;
+        }
+        
+        
+        toDoList.Add(toDoItem);
+        toDoItem = new();
+        creatingToDoItem = false;
+    }
+
+    public void DeleteItem(ToDoItem item)
+    {
+        toDoList.Remove(item);
+        OnValueChanged();
+    }
+
+    public void CompleteItem(ToDoItem item)
+    {
+        toDoList.Remove(item);
+        toDoListComplete.Add(item);
+        OnValueChanged();
+    }
+
+    public void OnValueChanged()
+    {
+        toDoListPriorities.Clear();
+        toDoListPriorities.AddRange(toDoList.Where(x => x.Prioritized));
+    }
+
+    protected override void OnInitialized()
+    {
+        creatingToDoItem = false;
+        toDoItem = new();
+        OnValueChanged();
+    }
+}
