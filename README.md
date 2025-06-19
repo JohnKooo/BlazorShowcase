@@ -2,7 +2,7 @@
 
 Here you can check out my mini projects I've challenged myself to do!
 
-Like what you see, or want to give me a challenge: leave a comment on this Repository
+Like what you see leave a star on this Repository
 
 Currently you may notice that my mini project styles look really ugly. My focus on looks is dead last in my 
 current priorities. Functionality is what I'm focusing on.

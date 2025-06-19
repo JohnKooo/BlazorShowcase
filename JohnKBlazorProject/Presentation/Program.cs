@@ -1,15 +1,12 @@
 using Presentation.Components;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.WebHost.UseStaticWebAssets();
-
-//TODO add Sqlite service here
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
-builder.Services.AddBlazorBootstrap();
+builder.Services.AddBootstrapBlazor();
 builder.Services.AddQuickGridEntityFrameworkAdapter();
 
 var app = builder.Build();
@@ -25,7 +22,6 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseStaticFiles();
-app.UseRouting();
 app.UseAntiforgery();
 
 app.MapRazorComponents<App>()

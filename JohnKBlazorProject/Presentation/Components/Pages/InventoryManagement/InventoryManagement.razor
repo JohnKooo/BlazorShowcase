@@ -1,9 +1,6 @@
 ﻿@page "/inventorymanagement"
 @rendermode InteractiveServer
-@using Microsoft.EntityFrameworkCore
 @using Microsoft.AspNetCore.Components.QuickGrid
-@using Presentation.Models;
-@using Presentation.Models.Inventory;
 @inject NavigationManager NavigationManager;
 
 <PageTitle>Inventory Management</PageTitle>
@@ -15,6 +12,7 @@
 <NavLink class="nav-link" href="inventorymanagement/vendor">
     <span aria-hidden="true"></span> Vendor
 </NavLink> *@
+
 <button type="submit" @onclick=@(() => NavigationManager.NavigateTo("inventorymanagement/customer"))>Customer</button>
 <button type="submit" @onclick=@(() => NavigationManager.NavigateTo("inventorymanagement/vendor"))>Vendor</button>
 

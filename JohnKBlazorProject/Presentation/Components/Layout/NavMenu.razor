@@ -1,16 +1,16 @@
-﻿@* <div class="top-row ps-3 navbar navbar-dark">
+﻿<div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="">JohnKBlazorProject</a>
+        <a class="navbar-brand" href="">BlazorShowcase</a>
     </div>
-</div> *@
+</div>
 
-@* <input type="checkbox" title="Navigation menu" class="navbar-toggler" /> *@
+<input type="checkbox" title="Navigation menu" class="navbar-toggler" />
 
-<div>
-    <nav>
+<div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
+    <nav class="flex-column">
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="bi bi-house fs-4" aria-hidden="true"></span> Home
+                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
             </NavLink>
         </div>
 
@@ -21,37 +21,37 @@
         </div>
 
         <div class="nav-item px-3">
-            <NavLink class="nav-link" href="inventorymanagement">
+            <NavLink class="nav-link" href="/inventorymanagement">
                 <span class="bi bi-hand-thumbs-up fs-4" aria-hidden="true"></span> Inventory Management Area
             </NavLink>
         </div>
 
         <div class="nav-item px-3">
-            <NavLink class="nav-link" href="?">
+            <NavLink class="nav-link" href="#">
                 <span class="bi bi-wrench-adjustable-circle-fill fs-4" aria-hidden="true"></span> Appointment Scheduler Area
             </NavLink>
         </div>
-        
+
         <div class="nav-item px-3">
-            <NavLink class="nav-link" href="?">
+            <NavLink class="nav-link" href="#">
                 <span class="bi bi-wrench-adjustable-circle-fill fs-4" aria-hidden="true"></span> Simple Social Feed Area
             </NavLink>
         </div>
 
         <div class="nav-item px-3">
-            <NavLink class="nav-link" href="?">
+            <NavLink class="nav-link" href="#">
                 <span class="bi bi-wrench-adjustable-circle-fill fs-4" aria-hidden="true"></span> Note Taking App Area
             </NavLink>
         </div>
 
         <div class="nav-item px-3">
-            <NavLink class="nav-link" href="?">
-                <span class="bi bi-wrench-adjustable-circle-fill fs-4" aria-hidden="true"></span> Library Sim Area
+            <NavLink class="nav-link" href="#">
+                <span class="bi bi-wrench-adjustable-circle-fill fs-4" aria-hidden="true"></span> Library Simple Area
             </NavLink>
         </div>
 
         <div class="nav-item px-3">
-            <NavLink class="nav-link" href="?">
+            <NavLink class="nav-link" href="#">
                 <span class="bi bi-steam fs-4" aria-hidden="true"></span> Game Area
             </NavLink>
         </div>
