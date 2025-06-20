@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Presentation.Models.Inventory;
+namespace Application.Models.Inventory;
 
 public class Item
 {

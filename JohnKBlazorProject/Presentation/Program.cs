@@ -1,6 +1,11 @@
 using Presentation.Components;
+using Infrastructure;
+using Microsoft.AspNetCore.Components.Authorization;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// builder.Services.AddDbContext<TaskContext>(options =>
+//     options.UseSqlite(builder.Configuration.GetConnectionString("TaskContext")));
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
@@ -8,6 +13,12 @@ builder.Services.AddRazorComponents()
 
 builder.Services.AddBootstrapBlazor();
 builder.Services.AddQuickGridEntityFrameworkAdapter();
+
+builder.Services.AddAuthentication();
+builder.Services.AddCascadingAuthenticationState();
+
+builder.Services
+    .AddInfrastructure(builder.Configuration);
 
 var app = builder.Build();
 
