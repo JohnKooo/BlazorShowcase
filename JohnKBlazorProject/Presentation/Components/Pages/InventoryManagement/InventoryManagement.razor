@@ -1,7 +1,10 @@
 ﻿@page "/inventorymanagement"
 @rendermode InteractiveServer
+@using Application.Models.Inventory
+@using Infrastructure.Services
 @using Microsoft.AspNetCore.Components.QuickGrid
 @inject NavigationManager NavigationManager;
+@inject InventoryService inventoryService;
 
 <PageTitle>Inventory Management</PageTitle>
 
@@ -15,6 +18,7 @@
 
 <button type="submit" @onclick=@(() => NavigationManager.NavigateTo("inventorymanagement/customer"))>Customer</button>
 <button type="submit" @onclick=@(() => NavigationManager.NavigateTo("inventorymanagement/vendor"))>Vendor</button>
+<button type="submit" @onclick=(Test)>Test Button</button>
 
 @* <div>
     <h1>Current Stock</h1>
@@ -37,6 +41,12 @@
 
 
 @code {
+
+    public async Task Test()
+    {
+        await inventoryService.AddItem(new Item());
+    }
+
     @* public List<Item> items = new List<Item> 
         {
             new Item(0, "Apple", 10, 2),

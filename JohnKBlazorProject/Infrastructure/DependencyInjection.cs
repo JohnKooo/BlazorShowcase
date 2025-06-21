@@ -1,5 +1,8 @@
 using System;
+using Application.Interfaces;
 using Infrastructure.Data;
+using Infrastructure.Repositories;
+using Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,6 +15,9 @@ public static class DependencyInjection
     {
         services.AddDbContext<InventoryDBContext>(options =>
         options.UseSqlite(configuration.GetConnectionString("InventoryDBContext")));
+
+        services.AddScoped<IInventoryRepository, InventoryRepository>();
+        services.AddScoped<InventoryService>();
 
 
         return services;
