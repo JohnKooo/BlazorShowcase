@@ -13,8 +13,8 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddDbContext<InventoryDBContext>(options =>
-        options.UseSqlite(configuration.GetConnectionString("InventoryDBContext")));
+        services.AddDbContext<AppDBContext>(options =>
+        options.UseSqlite(configuration.GetConnectionString("AppDBContext")));
 
         services.AddScoped<IInventoryRepository, InventoryRepository>();
         services.AddScoped<InventoryService>();

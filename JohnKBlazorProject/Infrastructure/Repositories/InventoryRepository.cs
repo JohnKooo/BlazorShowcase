@@ -7,17 +7,20 @@ namespace Infrastructure.Repositories;
 
 public class InventoryRepository : IInventoryRepository
 {
-    private readonly InventoryDBContext inventoryDBContext;
+    AppDBContext inventoryDBContext;
 
-    public InventoryRepository(InventoryDBContext inventoryDBContext)
+    public InventoryRepository(AppDBContext inventoryDBContext)
     {
         this.inventoryDBContext = inventoryDBContext;
     }
 
     public async Task AddItem(Item item)
     {
+        var path = Path.GetFullPath("InventoryDB.db");
+        Console.WriteLine(path);
         Console.Out.WriteLine("Add Item Message");
         await inventoryDBContext.AddAsync(item);
+        await inventoryDBContext.SaveChangesAsync();
     }
 
     public Task AddOrder(Order order)

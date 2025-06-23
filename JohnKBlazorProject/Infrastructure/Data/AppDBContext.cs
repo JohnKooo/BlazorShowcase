@@ -7,9 +7,9 @@ using Microsoft.Extensions.Configuration;
 
 namespace Infrastructure.Data;
 
-public class InventoryDBContext : DbContext
+public class AppDBContext : DbContext
 {
-    public InventoryDBContext(DbContextOptions<InventoryDBContext> options) : base(options)
+    public AppDBContext(DbContextOptions<AppDBContext> options) : base(options)
     {
 
     }

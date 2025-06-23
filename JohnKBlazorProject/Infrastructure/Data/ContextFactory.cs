@@ -5,14 +5,14 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Infrastructure.Data;
 
-public class ContextFactory : IDesignTimeDbContextFactory<InventoryDBContext>
+public class ContextFactory : IDesignTimeDbContextFactory<AppDBContext>
 {
-    public InventoryDBContext CreateDbContext(string[] args)
+    public AppDBContext CreateDbContext(string[] args)
     {
-        var optionsBuilder = new DbContextOptionsBuilder<InventoryDBContext>();
-        optionsBuilder.UseSqlite("Data Source=InventoryDB.db");
+        var optionsBuilder = new DbContextOptionsBuilder<AppDBContext>();
+        optionsBuilder.UseSqlite("Data Source=AppDB.db");
 
-        return new InventoryDBContext(optionsBuilder.Options);
+        return new AppDBContext(optionsBuilder.Options);
     }
 }
 // public class ContextFactory<TContext> : IDbContextFactory<TContext> where TContext : DbContext

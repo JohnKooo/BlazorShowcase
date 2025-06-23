@@ -44,7 +44,10 @@
 
     public async Task Test()
     {
-        await inventoryService.AddItem(new Item());
+        var item = new Item();
+        item.Cost = 3;
+        item.Name = "Test";
+        await inventoryService.AddItem(item);
     }
 
     @* public List<Item> items = new List<Item> 
